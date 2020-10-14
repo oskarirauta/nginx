@@ -17,9 +17,12 @@ RUN \
 RUN \
 	mkdir -p /scripts /scripts/entrypoint.d
 
-RUN 	rm -f /var/cache/apk/*
+RUN \
+	rm -f /etc/periodic/monthly/geoip && \
+	rm -f /var/cache/apk/*
 
-ADD nginx.conf /etc/nginx/
+COPY nginx.conf /etc/nginx/
+COPY geoip /etc/periodic/monthly/
 COPY entrypoint.sh /scripts/entrypoint.sh
 
 VOLUME ["/var/www"]

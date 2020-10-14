@@ -20,8 +20,9 @@ RUN \
   nginx-mod-http-image-filter nginx-mod-http-js nginx-mod-stream-js nginx-mod-http-headers-more \
   nginx-mod-http-upload-progress nginx-mod-http-dav-ext nginx-mod-http-fancyindex nginx-mod-http-nchan
 
+#addgroup -g 82 -S www-data && \
+
 RUN \
-	addgroup -g 82 -S www-data && \
 	adduser -u 82 -D -S -G www-data -g www www && \
 	mkdir -p /var/www && \
 	chown -R www:www-data /var/www

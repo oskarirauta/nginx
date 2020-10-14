@@ -19,7 +19,7 @@ RUN \
 
 RUN 	rm -f /var/cache/apk/*
 
-COPY nginx.conf /etc/nginx/
+ADD nginx.conf /etc/nginx/
 COPY entrypoint.sh /scripts/entrypoint.sh
 
 VOLUME ["/var/www"]

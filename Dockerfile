@@ -24,7 +24,7 @@ RUN \
 
 RUN \
 	adduser -u 82 -D -S -G www-data -g www www && \
-	mkdir -p /var/www && \
+	mkdir -p /var/www /run/nginx && \
 	chown -R www:www-data /var/www
 	
 RUN \
@@ -40,4 +40,4 @@ VOLUME ["/scripts/entrypoint.d"]
 EXPOSE 80 443
 
 ENTRYPOINT ["/scripts/entrypoint.sh"]
-CMD ["nginx", "-g", "daemon off"]
+CMD ["nginx", "-g", "daemon off;"]

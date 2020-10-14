@@ -27,13 +27,15 @@ RUN \
 RUN \
 	adduser -u 82 -D -S -G www-data -g www www && \
 	mkdir -p /var/www /run/nginx && \
-	chown -R www:www-data /var/www
+	chown -R www:www-data /var/www \
+	chown -R www:www-data /run/nginx
 	
 RUN \
 	mkdir -p /scripts /scripts/entrypoint.d
 
 RUN 	rm -f /var/cache/apk/*
 
+ADD nginx.conf /etc/nginx/
 COPY entrypoint.sh /scripts/entrypoint.sh
 
 VOLUME ["/var/www"]

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+get_db() {
+	URL="https://dl.miyuru.lk/geoip/maxmind/$1/maxmind.dat.gz"
+	wget -q "$URL" -O /tmp/GeoIP_$1.dat.gz
+	gunzip /tmp/GeoIP_$1.dat.gz
+	mv /tmp/GeoIP_$1.dat /usr/share/GeoIP/
+}
+
+get_db country
+get_db city
+get_db asn
+

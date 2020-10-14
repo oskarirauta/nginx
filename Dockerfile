@@ -26,11 +26,8 @@ RUN \
 	mkdir -p /var/www && \
 	chown -R www:www-data /var/www
 	
-#RUN \
-#	mkdir -p /scripts /scripts/entrypoint.d /etc/php7/templates /etc/php7/templates/php-fpm.d && \
-#	mv /etc/php7/php-fpm.conf /etc/php7/templates/ && \
-#	mv /etc/php7/php-fpm.d/www.conf /etc/php7/templates/php-fpm.d/ && \
-#	mv /etc/php7/php.ini /etc/php7/templates/
+RUN \
+	mkdir -p /scripts /scripts/entrypoint.d
 
 RUN 	rm -f /var/cache/apk/*
 
@@ -42,4 +39,4 @@ VOLUME ["/scripts/entrypoint.d"]
 EXPOSE 80 443
 
 ENTRYPOINT ["/scripts/entrypoint.sh"]
-#CMD ["/usr/sbin/php-fpm7"]
+CMD ["nginx", "-g", "daemon off"]

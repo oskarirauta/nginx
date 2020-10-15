@@ -5,7 +5,6 @@ nginx container image
 [![Docker Pulls](https://img.shields.io/docker/pulls/oskarirauta/nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/oskarirauta/nginx/)
 [![Docker Stars](https://img.shields.io/docker/stars/oskarirauta/nginx.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/oskarirauta/nginx/)
 
-
 This container image [(oskarirauta/nginx)](https://hub.docker.com/r/oskarirauta/nginx/) is based on [Alpine Linux](https://hub.docker.com/_/alpine).
 
 ----

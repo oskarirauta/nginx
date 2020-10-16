@@ -10,7 +10,7 @@ RUN \
   
 RUN \
 	adduser -u 82 -D -S -G www-data -g www www && \
-	mkdir -p /var/www /run/nginx && \
+	mkdir -p /var/www /run/nginx /etc/nginx/ssl && \
 	chown -R www:www-data /var/www && \
 	chown -R www:www-data /run/nginx
 	
@@ -22,6 +22,7 @@ RUN \
 	rm -f /var/cache/apk/*
 
 COPY nginx.conf /etc/nginx/
+COPY options-ssl-nginx.conf /etc/nginx/ssl/
 COPY geoip /etc/periodic/monthly/
 COPY entrypoint.sh /scripts/entrypoint.sh
 

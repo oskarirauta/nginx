@@ -6,7 +6,7 @@ RUN \
 
 RUN \
 	addgroup -g 82 -S www-data && \
-	adduser -u 82 -D -s /bin/ash -h /var/htdocs -G www-data -g www www
+	adduser -u 82 -D -S -h /var/htdocs -G www-data -g www www
 
 RUN \
   	apk --no-cache add nginx nginx-mod-http-xslt-filter nginx-mod-http-geoip nginx-mod-stream-geoip \
@@ -15,7 +15,6 @@ RUN \
 			tzdata curl ca-certificates
   
 RUN \
-	adduser -u 82 -D -S -G www-data -g www www && \
 	mkdir -p /var/htdocs /run/nginx /etc/nginx/ssl && \
 	chown -R www:www-data /var/htdocs /run/nginx
 	
